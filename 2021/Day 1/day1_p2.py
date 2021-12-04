@@ -4,11 +4,17 @@ with open("./2021/Day 1/input.txt") as file:
 increases = 0
 
 last = None
-for i in data:
+for i, measurement in enumerate(data):
+   if i + 2 >= len(data):
+      break
+
+   current = data[i] + data[i+1] + data[i+2]
+
    if last != None:
-      if i > last:
+      if current > last:
          increases += 1
-      
-   last = i
+
+   last = current
+
 
 print(increases)
